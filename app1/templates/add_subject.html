@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block add_subject_block %}
+
+<form method="post">
+    <h3>Dodavanje novog predmeta</h3>
+        <table class="add_subject">
+                {{form.as_table}}
+                {% csrf_token %}
+        </table>
+        <br>
+        <input type="submit" value="Dodaj predmet" class="form">
+    
+</form>
+
+{% endblock %}

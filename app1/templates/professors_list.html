@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block professors_list_block %}
+
+<h3>Lista profesora</h3>
+<a href="{%url 'add_professor' %}">+Novi profesor</a>
+<table class="professor_list">
+    <tr>
+        <th>Profesor</th>
+        <th></th>
+    </tr>
+
+{% for professor in professors %}
+    <tr>
+        <td>{{professor.first_name}} {{professor.last_name}} </td>
+        <td><a href="{%url 'update_professor' professor_id=professor.id %}">Edit</a></td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}
+

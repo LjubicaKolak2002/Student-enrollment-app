@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block students_on_subject %}
+
+<h3>Studenti na predmetu: {{subject.name}}</h3>
+
+<a href="{%url 'students_passed_subject' subject_id=subject.id %}">Studenti koji su polozili predmet</a><br>
+<td ><a href="{%url 'enrolled_not_passed' subject_id=subject.id %}">Studenti koji su upisali, ali jos nisu polozili predmet</a>
+<table class="students_subject">
+    <tr>
+        <th>Student</th>
+        <th>Status studenta</th>
+        <th>Status predmeta</th>
+        <th>Promijeni status predmeta</th>
+    </tr>
+
+{% for student in data %}
+    <tr>
+        <td>{{student.student.first_name}} {{student.student.last_name}}</td>
+        <td>{{student.student.status}}</td>
+        <td>{{student.status}}</td>
+        {% if student.status == 'upisan' %}
+        <td ><a href="{%url 'change_status' subject_id=subject.id student_id=student.student.id %}"><button class="change_status">Promijeni status</button></a></td>
+        {% else %}
+            <td><button type="submit" disabled>Promijeni status</i></button></td>
+        {% endif %}
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}
+

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block review_subjects_block %}
+
+<h3>Predmeti</h3>
+<br>
+<a href="{%url 'add_subject' %}">+ Novi predmet</a>
+
+<table class="professor_list">
+    <tr>
+        <th>Predmet</th>
+        <th>Kod</th>
+        <th>Popis studenata</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+{% for subject in subjects %}
+    <tr>
+        <td>{{subject.name}} </td>
+        <td>{{subject.kod}}</td>
+        <td><a href="{%url 'students_on_subject_admin' subject_id=subject.id %}">Vidi popis studenata</a></td>
+        <td><a href="{%url 'review_subjects_details' subject_id=subject.id %}">Detalji</a></td>
+        <td><a href = "{%url 'update_subject' subject_id=subject.id %}">Edit</a></td>
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock %}
+
+

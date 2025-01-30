@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block review_subjects_details %}
+
+<h3>Detalji o predmetu: {{subject.name}}</h3>
+<table class="subject_details">
+    <tr>
+        <td><b>Kod predmeta</b> : {{subject.kod}}</td>
+    </tr>
+    <tr>
+        <td><b>Pogram</b>: {{subject.program}}</td>
+    </tr>
+    <tr>
+        <td><b>Ects bodovi</b>: {{subject.ects}}</td>
+    </tr>
+    <tr>
+        <td><b>Semestar redovni</b>: {{subject.sem_red}}</td>
+    </tr>
+    <tr>
+        <td><b>Semestar izvanredni</b>: {{subject.sem_izv}}</td>
+    </tr>
+    <tr>
+        <td><b>Izborni predmet</b>: {{subject.izborni}}</td>
+    </tr>
+</table>
+{% endblock %}
+

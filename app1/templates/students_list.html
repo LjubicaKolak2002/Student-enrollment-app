@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block students_list_block %}
+
+<h3>Lista studenata</h3>
+
+<a href="{% url 'add_student' %}">+Novi student</a>
+    <table class = "list_student">
+        <tr>
+            <th>Student</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Azuriranje</th>
+            <th>Upisni list</th>
+            <th>Izradi upisni list</th>
+
+        </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{student.first_name}} {{student.last_name}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.status}}</td>
+            <td><a href="{%url 'update_student' student_id=student.id %}">Edit</a></td>
+            <td><a href="{%url 'enrollment_form_admin' student_id=student.id %}">Vidi upisni list</a></td>
+            <td><a href="{%url 'make_enrollment_form' student_id=student.id %}">Izradi upisni list</a></td>
+
+        </tr>
+    
+    {% endfor %}
+    </table>
+{% endblock %}

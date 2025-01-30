@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block professor_subjects %}
+
+<h3>{{professor.first_name}} {{professor.last_name}} - PREDMETI </h3> 
+<table class="professor_subjects">
+    <tr>
+        <th>Kolegij</th>
+        <th>Kod</th>
+        <th>Sem_red</th>
+        <th>Sem_izv</th>
+        <th>Izborni</th>
+        <th>Studenti</th>
+    </tr>
+
+
+{% for professor in data %}
+    <tr>
+        <td>{{professor.name}}</td>
+        <td>{{professor.kod}}</td>
+        <td>{{professor.sem_red}}</td>
+        <td>{{professor.sem_izv}}</td>
+        <td>{{professor.izborni}}</td>
+        <td><a href="http://localhost:8000/students_on_subject/{{professor.id}}/">Vidi popis studenata</a></td>
+    </tr>
+{% endfor%}
+</table>
+{% endblock %}
+
+

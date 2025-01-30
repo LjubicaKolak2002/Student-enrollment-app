@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block students_passed_subject %}
+
+<h3>Studenti koji su polozili predmet "{{subject}}"</h3>
+<div class="passed_students">
+    
+    {% for student in data %}
+        {{student.student.first_name}} {{student.student.last_name}}<br>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+

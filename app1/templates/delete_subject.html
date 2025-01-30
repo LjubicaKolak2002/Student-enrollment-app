@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block delete_subject %}
+
+<h3>Ispisivanje predmeta</h3>
+<form method="POST">
+    {% csrf_token %}
+    Student: {{student.first_name}} {{student.last_name}}<br><br>
+
+    Brisanje predmeta: {{subject_name}}<br><br>
+
+    <input type="submit" value="Ispisi" class="status">
+</form>
+{%endblock%}

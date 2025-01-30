@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block add_professor %}
+
+<form method="post">
+    <h3>Dodavanje novog profesora</h3>
+    <table class="add_user">
+            {{form.as_table}}
+            {% csrf_token %}
+    </table>
+    <br>
+    <input type="submit" value="Dodaj profesora" class="form">
+</form>
+
+{% endblock %}

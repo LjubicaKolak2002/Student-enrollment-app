@@ -1,0 +1,124 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+
+
+.list_student{
+  width:70%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+h3{
+  text-align: center;
+  padding:10px 15px;
+  background-color: rgba(127, 219, 255, 0.805);
+
+}
+
+a{
+  color: rgba(7, 112, 153, 0.805);
+  text-decoration: none;
+}
+
+
+.add_subject{
+  width:35%;
+}
+
+.form{
+  position: relative;
+  left: 47%;
+  margin-top:1%;
+  padding:8px 10px;
+  border-radius: 10px;
+  background-color:  rgba(127, 219, 255, 0.805);
+  border-color: white;
+}
+
+.add_user{
+  position: relative;
+  margin-top:4%;
+}
+
+.status{
+  position: relative;
+  left:2%;
+  padding:8px 15px;
+  border-radius: 10px;
+  background-color:  rgba(127, 219, 255, 0.805);
+  border-color: white;
+
+}
+
+#link_prijava{
+  position:relative;
+  left:50%;
+  font-size: 18px;
+}
+
+.professor_subjects{
+  position: relative;
+  margin-top:4%;
+}
+
+.professor_list{
+  width:40%;
+}
+
+.subject_details{
+  width:30%;
+}
+
+.passed_students{
+  position: relative;
+  left:40%;
+  margin-top:3%;
+}
+
+
+caption{
+  position: relative;
+  font-size:18px;
+  font-weight: 700;
+}
+
+.navbar{
+  position: relative;
+  margin-top:1.5%;
+  font-size:17px;
+  word-spacing: 3px;
+}
+
+.row {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-around;
+}
+
+.upisani {
+  border-radius: 15px;
+  box-shadow: white;
+  width: 40%;
+  margin: 35px;
+  text-align:center;
+}
+
+.admin_upisni{
+  position:relative;
+  top:5%;
+  text-align: center;
+  width:60%;
+  left:20%;
+}
+

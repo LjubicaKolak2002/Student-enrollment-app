@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block login_block %}
+
+<h3>Prijava</h3>
+<form method="post">
+    <table>
+        {{form.as_table}}
+        {% csrf_token %}
+    </table>
+    <input type="submit" value="Login" class="form">
+</form>
+{% endblock %}

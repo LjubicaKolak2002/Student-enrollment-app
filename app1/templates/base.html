@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <div class="navbar">
+        {% if user.is_authenticated and user.role == 'student' %}
+            <a href="{% url 'enrollment_form_student' student_id=request.user.id %}">Upisni list</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% elif user.is_authenticated and request.user.is_superuser %}
+            <a href="{% url 'review_subjects' %}"> Predmeti</a>
+            <a href="{% url 'students_list' %}">Studenti</a>
+            <a href="{%url 'professors_list' %}">Profesori</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% elif user.is_authenticated and user.role == 'profesor' %}
+            <a href="{% url 'professor_subjects' professor_id=request.user.id %}"> Predmeti</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    </div>
+
+    {% block content%}
+    {% endblock %}
+    {% block login_block %}
+    {% endblock %}
+    {% block review_subjects_block %}
+    {% endblock %}
+    {% block add_subject_block %}
+    {% endblock %}
+    {% block students_list_block %}
+    {% endblock %}
+    {% block add_professor %}
+    {% endblock %}
+    {% block add_student %}
+    {% endblock %}
+    {% block professors_list_block %}
+    {% endblock %}
+    {% block update_subject_block %}
+    {% endblock %}
+    {% block review_subjects_details %}
+    {% endblock%}
+    {% block add_user_block %}
+    {% endblock %}
+    {% block update_student_block %}
+    {% endblock %}
+    {% block update_professor_block %}
+    {% endblock %}
+    {% block logout_block %}
+    {% endblock %}
+    {% block students_on_subject %}
+    {% endblock %}
+    {% block front_page %}
+    {% endblock %}
+    {% block professor_subjects %}
+    {% endblock %}
+    {% block students_on_subject_admin %}
+    {% endblock %}
+    {% block subject_enrollment %}
+    {% endblock %}
+    {% block delete_subject %}
+    {% endblock %}
+    {% block student_enrollment_form %}
+    {% endblock %}
+    {% block students_lost_signature %}
+    {% endblock %}
+    {% block students_passed_subject %}
+    {% endblock %}
+    {% block change_status %}
+    {% endblock %}
+    {% block student_navigation %}
+    {% endblock %}
+    {% block admin_navigation %}
+    {% endblock %}
+    {% block professor_navigation %}
+    {% endblock %}
+    {% block enrollment_form_student %}
+    {% endblock %}
+    {% block enrollment_form_admin %}
+    {% endblock %}
+    {% block enrolled_not_passed %}
+    {% endblock%}
+    {% block enrollment_form_professor %}
+    {% endblock %}
+    {% block welcome_site %}
+    {% endblock %}
+    {% block make_enrollment_form %}
+    {% endblock %}
+
+
+  
+</body>
+</html>

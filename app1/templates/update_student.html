@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block update_student_block %}
+
+<h3>Azuriranje studenta</h3>
+<form method="POST">
+    <table>
+            {{form}}
+            {% csrf_token %}
+        </tr>
+    </table><br><br>
+    <input type="submit" value="Update" class="form">
+</form>
+{% endblock %}

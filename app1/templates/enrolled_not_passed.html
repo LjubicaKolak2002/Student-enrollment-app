@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block enrolled_not_passed %}
+
+<h3>Studenti koji su upisali predmet "{{subject_name}}", ali ga nisu jos polozili</h3>
+
+<div class="passed_students">
+    {% for student in students %}
+        {{student.first_name}} {{student.last_name}} {{student.status}}<br>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block enrollment_form_admin %}
+
+
+<h3>Upisni list ({{student.first_name}} {{student.last_name}})</h3><br>
+<div class="admin_upisni">
+    {% if student.status == 'redovni student' %}
+        {% for i in '123456' %}
+            <br><b>SEMESTAR {{forloop.counter}} </b><br><br>
+            {% with forloop.counter as outer_counter %}
+            <table>
+                <b>Polozeni predmeti</b>
+                <tr>
+                    <th>Predmet</th>
+                    <th>Promjena statusa</th>
+                </tr>
+                {%for sub in enroll_subjects %}
+                    {% for form in enroll_form %}
+                        {% if form.predmet_id == sub.id and sub.sem_red == outer_counter and form.status == 'polozen' %}
+                        <tr>
+                            <td>{{sub.name}} ({{sub.kod}})</td>
+                                <td><a href="{%url 'change_status' subject_id=sub.id student_id=student.id %}"><button>Promijeni status</button></a></td>
+                        </tr>
+                        {%endif%}
+                     {%endfor%}
+                {%endfor%}
+            </table><br><br>
+                
+                <b>Upisani predmeti</b><br><br>
+                {%for sub in enroll_subjects %}
+                    {% for form in enroll_form %}
+                        {% if form.predmet_id == sub.id and sub.sem_red == outer_counter and form.status == 'upisan'%}
+                            {{sub.name}} ({{sub.kod}})<br><br>
+                        {%endif%}
+                     {%endfor%}
+                {%endfor%}
+            
+            {%endwith%}
+            <hr>
+        {%endfor%}
+
+        {% elif student.status == 'izvanredni student' %}
+        {% for i in '12345678' %}
+            <br><b>SEMESTAR {{forloop.counter}} </b><br><br>
+            {% with forloop.counter as outer_counter %}
+            <table>
+                <b>Polozeni predmeti</b>
+                <tr>
+                    <th>Predmet</th>
+                    <th>Promjena statusa</th>
+                </tr>
+                {%for sub in enroll_subjects %}
+                    {% for form in enroll_form %}
+                        {% if form.predmet_id == sub.id and sub.sem_izv == outer_counter and form.status == 'polozen' %}
+                        <tr>
+                            <td>{{sub.name}} ({{sub.kod}})</td>
+                            <td><a href="{%url 'change_status' subject_id=sub.id student_id=student.id %}"><button>Promijeni status</button></a></td>
+                        </tr>
+                        {%endif%}
+                     {%endfor%}
+                {%endfor%}
+            </table><br><br>
+                
+                <b>Upisani predmeti</b><br><br>
+                {%for sub in enroll_subjects %}
+                    {% for form in enroll_form %}
+                        {% if form.predmet_id == sub.id and sub.sem_izv == outer_counter and form.status == 'upisan'%}
+                            {{sub.name}} ({{sub.kod}})<br><br>
+                        {%endif%}
+                     {%endfor%}
+                {%endfor%}
+            {%endwith%}
+            <hr>
+        {%endfor%}
+    {% endif %}
+</div>
+
+{% endblock %}

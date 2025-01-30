@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block change_status %}
+
+
+<h3>Promjena statusa za studenta</h3>
+<form method="POST">
+        Student: {{student.first_name}} {{student.last_name}}<br><br>
+        Predmet: {{subject}}<br><br>
+        {{form}}
+        {% csrf_token %}
+
+        <br><br><input type="submit" value="Submit" class="status">
+</form>
+{% endblock %}

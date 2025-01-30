@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block subject_enrollment %}
+
+<h3>Upisivanje predmeta</h3>
+<form method="POST">
+    {% csrf_token %}
+    Student: {{student.first_name}} {{student.last_name}}<br><br>
+
+    Upis predmeta: {{subject.name}}<br><br>
+
+    <input type="submit" value="Upisi" class="status">
+</form>
+
+{%endblock%}
